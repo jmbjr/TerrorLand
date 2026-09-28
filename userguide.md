@@ -45,6 +45,7 @@ The Vanguard fights automatically. The expedition display shows:
 - Your available portal tokens.
 
 You may pause whenever you want to inspect equipment or read the full combat log.
+While paused, **Step Turn** resolves exactly one hero-and-enemy combat exchange without resuming automatic play.
 
 ## Influencing the Autoplayer
 
@@ -94,6 +95,8 @@ Open the equipment panel while the game is paused to:
 - Lock it against automatic replacement or disposal.
 - Discard unwanted gear.
 - Review how it changes key combat estimates.
+
+Use **All Items** to open the complete loot archive. Every column—including each configured stat—is sortable. The leftmost button equips an item into its matching slot, replacing the currently equipped item; pressing **Equipped** removes it. The Current Stats panel updates immediately so the result can be compared without resuming combat.
 
 Equipment slots include main hand, off hand, head, body, hands, feet, and trinket.
 

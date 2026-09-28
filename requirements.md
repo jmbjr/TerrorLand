@@ -51,6 +51,7 @@ The game must remain entertaining without continuous input. Player actions influ
 Required controls:
 
 - **Pause / Resume** simulation.
+- **Step Turn** while paused to resolve one complete combat exchange.
 - **Retreat to Emberrest**, enabled only when a portal token is available and retreat is currently legal.
 - **Equip / unequip / discard** items.
 - **Lock** an item so automation cannot replace or discard it.
@@ -161,6 +162,9 @@ The “loot rainbow” should be visible through colored drop markers, a scrolli
 
 - Display equipped items and a finite backpack.
 - Allow comparison between a selected item and the equipped item for that slot.
+- Provide a complete sortable found-item table with one column per configured stat.
+- Allow any found item to be equipped, replaced, or unequipped directly from that table.
+- Display current aggregate character stats and update them immediately after equipment changes.
 - Show resulting changes to damage, survivability, attack tempo, and total score.
 - Prevent locked items from being discarded or replaced automatically.
 - When the backpack is full, apply a configurable policy: pause, discard lowest unlocked item, or leave new drops behind.
