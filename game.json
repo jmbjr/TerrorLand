@@ -1,24 +1,1410 @@
 {
-  "version": 1,
+  "version": 2,
   "tickMs": 650,
-  "hero": {"name":"Vanguard","maxHealth":120,"damage":[10,16],"armor":2,"icon":"⚔","portals":1},
-  "floors": [
-    {"name":"Dustmouth Steps","enemies":[{"name":"Dustbound","health":32,"damage":[3,7],"icon":"☠"},{"name":"Tomb Scarab","health":38,"damage":[4,8],"icon":"🪲"}]},
-    {"name":"Burial Galleries","enemies":[{"name":"Clay Warden","health":55,"damage":[6,11],"icon":"♜"},{"name":"Veil Priest","health":46,"damage":[7,12],"icon":"♝"}]},
-    {"name":"Sunken Reliquary","enemies":[{"name":"Dustbound Champion","health":74,"damage":[8,14],"icon":"☠"},{"name":"Tomb Scarab Brood","health":68,"damage":[7,15],"icon":"🪲"}]},
-    {"name":"Hall of Empty Names","enemies":[{"name":"Clay Warden","health":88,"damage":[10,16],"icon":"♜"},{"name":"Veil Priest Ascendant","health":80,"damage":[11,17],"icon":"♝"}]},
-    {"name":"The Sealed Procession","enemies":[{"name":"Royal Dustguard","health":105,"damage":[12,19],"icon":"♞"},{"name":"Curse-Bearer","health":92,"damage":[13,20],"icon":"☥"}]},
-    {"name":"The Linen Throne","enemies":[{"name":"Mummy Queen","health":190,"damage":[14,24],"icon":"♛","boss":true}]}
+  "floorCount": 6,
+  "hero": {
+    "name": "Vanguard",
+    "maxHealth": 120,
+    "damage": [
+      10,
+      16
+    ],
+    "armor": 2,
+    "icon": "⚔",
+    "portals": 1
+  },
+  "floorNames": {
+    "adjectives": [
+      "Dustbound",
+      "Sunken",
+      "Hollow",
+      "Ashen",
+      "Forgotten",
+      "Sealed",
+      "Weeping",
+      "Shrouded",
+      "Ancient",
+      "Bleak",
+      "Gilded",
+      "Silent"
+    ],
+    "nouns": [
+      "Galleries",
+      "Reliquary",
+      "Procession",
+      "Catacombs",
+      "Vaults",
+      "Ossuary",
+      "Passage",
+      "Sepulcher",
+      "Chambers",
+      "Crypts",
+      "Sanctum",
+      "Labyrinth"
+    ]
+  },
+  "enemies": [
+    {
+      "name": "Dustbound",
+      "health": 30,
+      "damage": [
+        3,
+        7
+      ],
+      "icon": "☠"
+    },
+    {
+      "name": "Tomb Scarab",
+      "health": 34,
+      "damage": [
+        4,
+        7
+      ],
+      "icon": "🪲"
+    },
+    {
+      "name": "Clay Warden",
+      "health": 42,
+      "damage": [
+        4,
+        9
+      ],
+      "icon": "♜"
+    },
+    {
+      "name": "Veil Priest",
+      "health": 36,
+      "damage": [
+        5,
+        10
+      ],
+      "icon": "♝"
+    },
+    {
+      "name": "Royal Dustguard",
+      "health": 48,
+      "damage": [
+        6,
+        11
+      ],
+      "icon": "♞"
+    },
+    {
+      "name": "Curse-Bearer",
+      "health": 40,
+      "damage": [
+        7,
+        12
+      ],
+      "icon": "☥"
+    },
+    {
+      "name": "Bone Lantern",
+      "health": 38,
+      "damage": [
+        5,
+        13
+      ],
+      "icon": "♢"
+    },
+    {
+      "name": "Linen Stalker",
+      "health": 44,
+      "damage": [
+        6,
+        12
+      ],
+      "icon": "♟"
+    },
+    {
+      "name": "Grave Jackal",
+      "health": 32,
+      "damage": [
+        8,
+        13
+      ],
+      "icon": "◆"
+    },
+    {
+      "name": "Silt Revenant",
+      "health": 52,
+      "damage": [
+        6,
+        10
+      ],
+      "icon": "♠"
+    },
+    {
+      "name": "Ash Vulture",
+      "health": 28,
+      "damage": [
+        7,
+        14
+      ],
+      "icon": "⌁"
+    },
+    {
+      "name": "Urn Sentinel",
+      "health": 58,
+      "damage": [
+        5,
+        10
+      ],
+      "icon": "♖"
+    }
+  ],
+  "boss": {
+    "name": "Mummy Queen",
+    "health": 190,
+    "damage": [
+      14,
+      24
+    ],
+    "icon": "♛",
+    "boss": true
+  },
+  "stats": [
+    {
+      "id": "damage_flat",
+      "label": "Damage",
+      "score": 2
+    },
+    {
+      "id": "damage_percent",
+      "label": "Damage %",
+      "score": 1.2
+    },
+    {
+      "id": "max_health",
+      "label": "Maximum Health",
+      "score": 0.5
+    },
+    {
+      "id": "armor_flat",
+      "label": "Armor",
+      "score": 1.8
+    },
+    {
+      "id": "attack_speed",
+      "label": "Attack Speed %",
+      "score": 1.3
+    },
+    {
+      "id": "critical_chance",
+      "label": "Critical Chance %",
+      "score": 1.6
+    },
+    {
+      "id": "critical_damage",
+      "label": "Critical Damage %",
+      "score": 0.9
+    },
+    {
+      "id": "block_chance",
+      "label": "Block Chance %",
+      "score": 1.4
+    },
+    {
+      "id": "dodge_chance",
+      "label": "Dodge Chance %",
+      "score": 1.4
+    },
+    {
+      "id": "life_on_hit",
+      "label": "Life on Hit",
+      "score": 1.5
+    },
+    {
+      "id": "life_regen",
+      "label": "Health Regeneration",
+      "score": 1.1
+    },
+    {
+      "id": "fire_damage",
+      "label": "Fire Damage",
+      "score": 1.4
+    },
+    {
+      "id": "cold_damage",
+      "label": "Cold Damage",
+      "score": 1.4
+    },
+    {
+      "id": "lightning_damage",
+      "label": "Lightning Damage",
+      "score": 1.4
+    },
+    {
+      "id": "poison_damage",
+      "label": "Poison Damage",
+      "score": 1.4
+    },
+    {
+      "id": "fire_resist",
+      "label": "Fire Resistance %",
+      "score": 0.8
+    },
+    {
+      "id": "cold_resist",
+      "label": "Cold Resistance %",
+      "score": 0.8
+    },
+    {
+      "id": "lightning_resist",
+      "label": "Lightning Resistance %",
+      "score": 0.8
+    },
+    {
+      "id": "poison_resist",
+      "label": "Poison Resistance %",
+      "score": 0.8
+    },
+    {
+      "id": "all_resist",
+      "label": "All Resistances %",
+      "score": 1.6
+    },
+    {
+      "id": "fortune",
+      "label": "Fortune %",
+      "score": 1
+    },
+    {
+      "id": "gold_find",
+      "label": "Treasure Find %",
+      "score": 0.6
+    },
+    {
+      "id": "execute_chance",
+      "label": "Execute Chance %",
+      "score": 1.8
+    },
+    {
+      "id": "thorns",
+      "label": "Retaliation Damage",
+      "score": 1.1
+    },
+    {
+      "id": "damage_reduction",
+      "label": "Damage Reduction %",
+      "score": 2
+    }
   ],
   "loot": {
-    "dropChance":0.78,
-    "slots":["Main Hand","Off Hand","Head","Body","Hands","Feet","Trinket"],
-    "bases":["Ashen Blade","Stone Buckler","Veil Hood","Dustmail","Grave Grips","Siltwalkers","Sun Shard"],
-    "rarities":[
-      {"id":"common","name":"Common","weight":60,"power":[1,3]},
-      {"id":"tempered","name":"Tempered","weight":28,"power":[3,6]},
-      {"id":"exalted","name":"Exalted","weight":10,"power":[6,10]},
-      {"id":"mythic","name":"Mythic","weight":2,"power":[10,16]}
+    "dropChance": 0.78,
+    "prefixChance": 0.5,
+    "suffixChance": 0.5,
+    "extraChance": 0.1,
+    "itemBases": {
+      "Main Hand": [
+        "Siltblade",
+        "Grave Axe",
+        "Ember Mace"
+      ],
+      "Off Hand": [
+        "Stone Buckler",
+        "Ashen Ward",
+        "Reliquary Shield"
+      ],
+      "Head": [
+        "Veil Hood",
+        "Dust Helm",
+        "Crownless Casque"
+      ],
+      "Body": [
+        "Siltmail",
+        "Burial Plate",
+        "Warden Carapace"
+      ],
+      "Hands": [
+        "Grave Grips",
+        "Ember Gauntlets",
+        "Linen Wraps"
+      ],
+      "Feet": [
+        "Siltwalkers",
+        "Crypt Treads",
+        "Ashen Sabatons"
+      ],
+      "Trinket": [
+        "Sun Shard",
+        "Bone Sigil",
+        "Veiled Reliquary"
+      ]
+    },
+    "rarities": [
+      {
+        "id": "common",
+        "name": "Common",
+        "affixCount": 0
+      },
+      {
+        "id": "tempered",
+        "name": "Tempered",
+        "affixCount": 1
+      },
+      {
+        "id": "exalted",
+        "name": "Exalted",
+        "affixCount": 2
+      },
+      {
+        "id": "mythic",
+        "name": "Mythic",
+        "affixCount": 3
+      }
+    ],
+    "affixes": [
+      {
+        "name": "Hallowed",
+        "types": [
+          "extra",
+          "prefix"
+        ],
+        "effect": {
+          "stat": "all_resist",
+          "min": 2,
+          "max": 6
+        }
+      },
+      {
+        "name": "Godforged",
+        "types": [
+          "extra",
+          "prefix"
+        ],
+        "effect": {
+          "stat": "damage_percent",
+          "min": 4,
+          "max": 10
+        }
+      },
+      {
+        "name": "Astral",
+        "types": [
+          "extra",
+          "prefix"
+        ],
+        "effect": {
+          "stat": "critical_chance",
+          "min": 2,
+          "max": 5
+        }
+      },
+      {
+        "name": "Ironbound",
+        "types": [
+          "extra",
+          "prefix"
+        ],
+        "effect": {
+          "stat": "armor_flat",
+          "min": 3,
+          "max": 8
+        }
+      },
+      {
+        "name": "Deathless",
+        "types": [
+          "extra",
+          "prefix"
+        ],
+        "effect": {
+          "stat": "max_health",
+          "min": 6,
+          "max": 16
+        }
+      },
+      {
+        "name": "Empyrean",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "lightning_damage",
+          "min": 3,
+          "max": 9
+        }
+      },
+      {
+        "name": "Abyssal",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "poison_damage",
+          "min": 3,
+          "max": 9
+        }
+      },
+      {
+        "name": "Runeblessed",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "fortune",
+          "min": 3,
+          "max": 8
+        }
+      },
+      {
+        "name": "Doomwrought",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "execute_chance",
+          "min": 1,
+          "max": 4
+        }
+      },
+      {
+        "name": "Starfallen",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "critical_damage",
+          "min": 5,
+          "max": 14
+        }
+      },
+      {
+        "name": "Worldscarred",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "damage_flat",
+          "min": 3,
+          "max": 7
+        }
+      },
+      {
+        "name": "Graveborn",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "life_on_hit",
+          "min": 2,
+          "max": 5
+        }
+      },
+      {
+        "name": "Sun-Crowned",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "fire_damage",
+          "min": 4,
+          "max": 10
+        }
+      },
+      {
+        "name": "Moon-Veiled",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "cold_damage",
+          "min": 4,
+          "max": 10
+        }
+      },
+      {
+        "name": "Storm-Kissed",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "attack_speed",
+          "min": 3,
+          "max": 8
+        }
+      },
+      {
+        "name": "Void-Touched",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "damage_reduction",
+          "min": 1,
+          "max": 4
+        }
+      },
+      {
+        "name": "Ancestor-Watched",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "block_chance",
+          "min": 2,
+          "max": 6
+        }
+      },
+      {
+        "name": "Blood-Anointed",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "life_regen",
+          "min": 2,
+          "max": 6
+        }
+      },
+      {
+        "name": "Oath-Sealed",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "armor_flat",
+          "min": 4,
+          "max": 9
+        }
+      },
+      {
+        "name": "Night-Sovereign",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "dodge_chance",
+          "min": 2,
+          "max": 6
+        }
+      },
+      {
+        "name": "Titan-Marked",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "max_health",
+          "min": 8,
+          "max": 18
+        }
+      },
+      {
+        "name": "Phoenix-Woken",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "fire_resist",
+          "min": 5,
+          "max": 12
+        }
+      },
+      {
+        "name": "Frost-Sworn",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "cold_resist",
+          "min": 5,
+          "max": 12
+        }
+      },
+      {
+        "name": "Thunder-Called",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "lightning_resist",
+          "min": 5,
+          "max": 12
+        }
+      },
+      {
+        "name": "Plague-Proven",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "poison_resist",
+          "min": 5,
+          "max": 12
+        }
+      },
+      {
+        "name": "Relic-Etched",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "gold_find",
+          "min": 8,
+          "max": 20
+        }
+      },
+      {
+        "name": "Rift-Walking",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "dodge_chance",
+          "min": 3,
+          "max": 7
+        }
+      },
+      {
+        "name": "Crown-Shattering",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "critical_damage",
+          "min": 8,
+          "max": 18
+        }
+      },
+      {
+        "name": "Soul-Tempered",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "all_resist",
+          "min": 3,
+          "max": 8
+        }
+      },
+      {
+        "name": "Everlasting",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "life_regen",
+          "min": 3,
+          "max": 8
+        }
+      },
+      {
+        "name": "Chaos-Woven",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "fortune",
+          "min": 5,
+          "max": 12
+        }
+      },
+      {
+        "name": "Wyrm-Blooded",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "fire_damage",
+          "min": 5,
+          "max": 12
+        }
+      },
+      {
+        "name": "Oracle-Bound",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "critical_chance",
+          "min": 3,
+          "max": 7
+        }
+      },
+      {
+        "name": "Leviathan-Hewn",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "damage_reduction",
+          "min": 2,
+          "max": 5
+        }
+      },
+      {
+        "name": "Heaven-Piercing",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "damage_flat",
+          "min": 4,
+          "max": 9
+        }
+      },
+      {
+        "name": "Eclipse-Bound",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "block_chance",
+          "min": 3,
+          "max": 7
+        }
+      },
+      {
+        "name": "Fate-Carved",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "fortune",
+          "min": 4,
+          "max": 11
+        }
+      },
+      {
+        "name": "Hellward",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "fire_resist",
+          "min": 6,
+          "max": 14
+        }
+      },
+      {
+        "name": "Dream-Eaten",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "poison_damage",
+          "min": 5,
+          "max": 11
+        }
+      },
+      {
+        "name": "Firstborn",
+        "types": [
+          "extra"
+        ],
+        "effect": {
+          "stat": "max_health",
+          "min": 7,
+          "max": 17
+        }
+      },
+      {
+        "name": "Cruel",
+        "types": [
+          "prefix"
+        ],
+        "effect": {
+          "stat": "damage_flat",
+          "min": 2,
+          "max": 6
+        }
+      },
+      {
+        "name": "Stalwart",
+        "types": [
+          "prefix"
+        ],
+        "effect": {
+          "stat": "armor_flat",
+          "min": 2,
+          "max": 7
+        }
+      },
+      {
+        "name": "Vigorous",
+        "types": [
+          "prefix"
+        ],
+        "effect": {
+          "stat": "max_health",
+          "min": 5,
+          "max": 14
+        }
+      },
+      {
+        "name": "Flaring",
+        "types": [
+          "prefix"
+        ],
+        "effect": {
+          "stat": "fire_damage",
+          "min": 2,
+          "max": 7
+        }
+      },
+      {
+        "name": "Riming",
+        "types": [
+          "prefix"
+        ],
+        "effect": {
+          "stat": "cold_damage",
+          "min": 2,
+          "max": 7
+        }
+      },
+      {
+        "name": "Sparking",
+        "types": [
+          "prefix"
+        ],
+        "effect": {
+          "stat": "lightning_damage",
+          "min": 2,
+          "max": 7
+        }
+      },
+      {
+        "name": "Venomous",
+        "types": [
+          "prefix"
+        ],
+        "effect": {
+          "stat": "poison_damage",
+          "min": 2,
+          "max": 7
+        }
+      },
+      {
+        "name": "Fleet",
+        "types": [
+          "prefix"
+        ],
+        "effect": {
+          "stat": "attack_speed",
+          "min": 2,
+          "max": 6
+        }
+      },
+      {
+        "name": "Keen",
+        "types": [
+          "prefix"
+        ],
+        "effect": {
+          "stat": "critical_chance",
+          "min": 1,
+          "max": 4
+        }
+      },
+      {
+        "name": "Savage",
+        "types": [
+          "prefix"
+        ],
+        "effect": {
+          "stat": "critical_damage",
+          "min": 4,
+          "max": 12
+        }
+      },
+      {
+        "name": "Resolute",
+        "types": [
+          "prefix"
+        ],
+        "effect": {
+          "stat": "block_chance",
+          "min": 2,
+          "max": 5
+        }
+      },
+      {
+        "name": "Elusive",
+        "types": [
+          "prefix"
+        ],
+        "effect": {
+          "stat": "dodge_chance",
+          "min": 2,
+          "max": 5
+        }
+      },
+      {
+        "name": "Sanguine",
+        "types": [
+          "prefix"
+        ],
+        "effect": {
+          "stat": "life_on_hit",
+          "min": 1,
+          "max": 4
+        }
+      },
+      {
+        "name": "Mending",
+        "types": [
+          "prefix"
+        ],
+        "effect": {
+          "stat": "life_regen",
+          "min": 1,
+          "max": 5
+        }
+      },
+      {
+        "name": "Cinderproof",
+        "types": [
+          "prefix"
+        ],
+        "effect": {
+          "stat": "fire_resist",
+          "min": 4,
+          "max": 10
+        }
+      },
+      {
+        "name": "Winterproof",
+        "types": [
+          "prefix"
+        ],
+        "effect": {
+          "stat": "cold_resist",
+          "min": 4,
+          "max": 10
+        }
+      },
+      {
+        "name": "Stormproof",
+        "types": [
+          "prefix"
+        ],
+        "effect": {
+          "stat": "lightning_resist",
+          "min": 4,
+          "max": 10
+        }
+      },
+      {
+        "name": "Blightproof",
+        "types": [
+          "prefix"
+        ],
+        "effect": {
+          "stat": "poison_resist",
+          "min": 4,
+          "max": 10
+        }
+      },
+      {
+        "name": "Prismatic",
+        "types": [
+          "prefix"
+        ],
+        "effect": {
+          "stat": "all_resist",
+          "min": 2,
+          "max": 6
+        }
+      },
+      {
+        "name": "Fortunate",
+        "types": [
+          "prefix"
+        ],
+        "effect": {
+          "stat": "fortune",
+          "min": 3,
+          "max": 9
+        }
+      },
+      {
+        "name": "Gilded",
+        "types": [
+          "prefix"
+        ],
+        "effect": {
+          "stat": "gold_find",
+          "min": 6,
+          "max": 16
+        }
+      },
+      {
+        "name": "Decisive",
+        "types": [
+          "prefix"
+        ],
+        "effect": {
+          "stat": "execute_chance",
+          "min": 1,
+          "max": 3
+        }
+      },
+      {
+        "name": "Barbed",
+        "types": [
+          "prefix"
+        ],
+        "effect": {
+          "stat": "thorns",
+          "min": 3,
+          "max": 10
+        }
+      },
+      {
+        "name": "Unyielding",
+        "types": [
+          "prefix"
+        ],
+        "effect": {
+          "stat": "damage_reduction",
+          "min": 1,
+          "max": 3
+        }
+      },
+      {
+        "name": "Ravaging",
+        "types": [
+          "prefix"
+        ],
+        "effect": {
+          "stat": "damage_percent",
+          "min": 3,
+          "max": 9
+        }
+      },
+      {
+        "name": "the Colossus",
+        "types": [
+          "suffix"
+        ],
+        "effect": {
+          "stat": "max_health",
+          "min": 7,
+          "max": 18
+        }
+      },
+      {
+        "name": "the Jackal",
+        "types": [
+          "suffix"
+        ],
+        "effect": {
+          "stat": "attack_speed",
+          "min": 2,
+          "max": 7
+        }
+      },
+      {
+        "name": "the Falcon",
+        "types": [
+          "suffix"
+        ],
+        "effect": {
+          "stat": "critical_chance",
+          "min": 2,
+          "max": 5
+        }
+      },
+      {
+        "name": "the Mauler",
+        "types": [
+          "suffix"
+        ],
+        "effect": {
+          "stat": "critical_damage",
+          "min": 5,
+          "max": 14
+        }
+      },
+      {
+        "name": "the Bastion",
+        "types": [
+          "suffix"
+        ],
+        "effect": {
+          "stat": "armor_flat",
+          "min": 3,
+          "max": 8
+        }
+      },
+      {
+        "name": "Embers",
+        "types": [
+          "suffix"
+        ],
+        "effect": {
+          "stat": "fire_damage",
+          "min": 3,
+          "max": 8
+        }
+      },
+      {
+        "name": "Rime",
+        "types": [
+          "suffix"
+        ],
+        "effect": {
+          "stat": "cold_damage",
+          "min": 3,
+          "max": 8
+        }
+      },
+      {
+        "name": "Storms",
+        "types": [
+          "suffix"
+        ],
+        "effect": {
+          "stat": "lightning_damage",
+          "min": 3,
+          "max": 8
+        }
+      },
+      {
+        "name": "Venom",
+        "types": [
+          "suffix"
+        ],
+        "effect": {
+          "stat": "poison_damage",
+          "min": 3,
+          "max": 8
+        }
+      },
+      {
+        "name": "Cinders",
+        "types": [
+          "suffix"
+        ],
+        "effect": {
+          "stat": "fire_resist",
+          "min": 4,
+          "max": 11
+        }
+      },
+      {
+        "name": "Hoarfrost",
+        "types": [
+          "suffix"
+        ],
+        "effect": {
+          "stat": "cold_resist",
+          "min": 4,
+          "max": 11
+        }
+      },
+      {
+        "name": "Grounding",
+        "types": [
+          "suffix"
+        ],
+        "effect": {
+          "stat": "lightning_resist",
+          "min": 4,
+          "max": 11
+        }
+      },
+      {
+        "name": "Purity",
+        "types": [
+          "suffix"
+        ],
+        "effect": {
+          "stat": "poison_resist",
+          "min": 4,
+          "max": 11
+        }
+      },
+      {
+        "name": "the Prism",
+        "types": [
+          "suffix"
+        ],
+        "effect": {
+          "stat": "all_resist",
+          "min": 2,
+          "max": 7
+        }
+      },
+      {
+        "name": "Hunger",
+        "types": [
+          "suffix"
+        ],
+        "effect": {
+          "stat": "life_on_hit",
+          "min": 2,
+          "max": 5
+        }
+      },
+      {
+        "name": "Renewal",
+        "types": [
+          "suffix"
+        ],
+        "effect": {
+          "stat": "life_regen",
+          "min": 2,
+          "max": 6
+        }
+      },
+      {
+        "name": "the Bulwark",
+        "types": [
+          "suffix"
+        ],
+        "effect": {
+          "stat": "block_chance",
+          "min": 2,
+          "max": 6
+        }
+      },
+      {
+        "name": "Phantoms",
+        "types": [
+          "suffix"
+        ],
+        "effect": {
+          "stat": "dodge_chance",
+          "min": 2,
+          "max": 6
+        }
+      },
+      {
+        "name": "Plenty",
+        "types": [
+          "suffix"
+        ],
+        "effect": {
+          "stat": "gold_find",
+          "min": 7,
+          "max": 18
+        }
+      },
+      {
+        "name": "Portents",
+        "types": [
+          "suffix"
+        ],
+        "effect": {
+          "stat": "fortune",
+          "min": 3,
+          "max": 10
+        }
+      },
+      {
+        "name": "Finality",
+        "types": [
+          "suffix"
+        ],
+        "effect": {
+          "stat": "execute_chance",
+          "min": 1,
+          "max": 4
+        }
+      },
+      {
+        "name": "Briars",
+        "types": [
+          "suffix"
+        ],
+        "effect": {
+          "stat": "thorns",
+          "min": 4,
+          "max": 12
+        }
+      },
+      {
+        "name": "Shelter",
+        "types": [
+          "suffix"
+        ],
+        "effect": {
+          "stat": "damage_reduction",
+          "min": 1,
+          "max": 4
+        }
+      },
+      {
+        "name": "Ruin",
+        "types": [
+          "suffix"
+        ],
+        "effect": {
+          "stat": "damage_percent",
+          "min": 4,
+          "max": 11
+        }
+      },
+      {
+        "name": "Giantblood",
+        "types": [
+          "suffix"
+        ],
+        "effect": {
+          "stat": "damage_flat",
+          "min": 2,
+          "max": 7
+        }
+      },
+      {
+        "name": "the Dusk",
+        "types": [
+          "suffix"
+        ],
+        "effect": {
+          "stat": "dodge_chance",
+          "min": 3,
+          "max": 7
+        }
+      },
+      {
+        "name": "the Dawn",
+        "types": [
+          "suffix"
+        ],
+        "effect": {
+          "stat": "life_regen",
+          "min": 3,
+          "max": 7
+        }
+      },
+      {
+        "name": "Echoes",
+        "types": [
+          "suffix"
+        ],
+        "effect": {
+          "stat": "attack_speed",
+          "min": 3,
+          "max": 8
+        }
+      },
+      {
+        "name": "the Deep",
+        "types": [
+          "suffix"
+        ],
+        "effect": {
+          "stat": "max_health",
+          "min": 9,
+          "max": 20
+        }
+      },
+      {
+        "name": "the Crownless",
+        "types": [
+          "suffix"
+        ],
+        "effect": {
+          "stat": "critical_damage",
+          "min": 7,
+          "max": 16
+        }
+      }
     ]
   }
 }

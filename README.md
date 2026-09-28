@@ -24,7 +24,8 @@ Tombs**, culminating in a battle with the **Mummy Queen**.
 
 ## Current Status
 
-Playable prototype: autonomous combat, procedural equipment, retreat, local
+Playable prototype: autonomous combat, procedural affixed equipment, generated
+floors and encounters, retreat, local
 save data, and development-time JSON authoring are implemented. GitHub Actions
 validates the source and deploys `main` to GitHub Pages.
 
@@ -43,3 +44,7 @@ Authoring mode stores configuration overrides in that browser's local storage.
 Use **Export JSON** to create a file suitable for review and later replacement
 of `game.json`. The development gate is only a convenience; a static site
 cannot securely protect client-side authoring controls.
+
+Loot names follow the configurable form **[Extra] [Prefix] Item of [Suffix]**.
+The same JSON defines 25 stats, affix eligibility, effect ranges, three base
+variants per equipment slot, floor-name fragments, and the enemy pool.

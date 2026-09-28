@@ -96,11 +96,13 @@ All attribute names, formulas, starting values, growth, and caps must be stored 
 
 ## 8. Dungeon and Encounters
 
-Each floor is a sequence of encounter nodes rather than a freely navigated map in the first slice.
+Each floor is a procedurally named sequence of encounter nodes rather than a freely navigated map in the first slice.
 
 Required floor content:
 
-- Floor definition and encounter tables loaded from JSON.
+- A JSON `floorCount` integer controls run length.
+- Floor names combine configurable adjective and noun pools.
+- Floor `F` contains `F + random(1, F × 2)` ordinary enemies selected from the configured enemy pool.
 - A visible floor name, depth, progress indicator, and current encounter.
 - Regular enemies, stronger champion variants, breakable containers, and a floor guardian or completion encounter.
 - At least four original enemy families distributed across the dungeon.
@@ -125,7 +127,9 @@ If “Mummy Queen” is later considered too generic or too close to another wor
 
 ## 10. Loot System
 
-Items are generated from JSON-defined bases, material tiers, rarities, affix pools, and drop tables.
+Items are generated from JSON-defined slot bases, rarities, role-aware affix pools, and drop tables. Each slot begins with three base-item variants.
+
+Names follow **[Extra] [Prefix] Item of [Suffix]**. Prefix and suffix each roll independently at 50%. When either is present, an Extra affix rolls at 10%; Extra can never appear alone. Every affix identifies one or more eligible roles and contributes a rolled effect targeting a declared stat.
 
 Required slots:
 
