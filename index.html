@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#160d1d">
+  <title>TerrorLand</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div><p class="eyebrow">THE SILT TOMBS AWAIT</p><h1>TerrorLand</h1></div>
+    <div class="header-actions"><span id="version">local</span><button id="authorBtn" class="ghost">Authoring</button></div>
+  </header>
+
+  <main>
+    <section class="stage panel">
+      <div class="floor-line"><span id="floorName">Emberrest</span><span id="progress">Preparing expedition</span></div>
+      <div class="arena">
+        <article id="heroCard" class="combatant hero">
+          <div class="sprite">⚔</div><h2 id="heroName">Vanguard</h2>
+          <div class="bar"><i id="heroHealth"></i></div><p id="heroStats"></p>
+        </article>
+        <div class="versus">VS</div>
+        <article id="enemyCard" class="combatant enemy">
+          <div class="sprite" id="enemyIcon">☠</div><h2 id="enemyName">Waiting…</h2>
+          <div class="bar"><i id="enemyHealth"></i></div><p id="enemyStats"></p>
+        </article>
+      </div>
+      <div class="controls">
+        <button id="startBtn" class="primary">Begin Expedition</button>
+        <button id="pauseBtn" disabled>Pause</button>
+        <button id="retreatBtn" disabled>Portal Retreat <span id="portalCount">×1</span></button>
+        <button id="resetBtn" class="danger">Reset Run</button>
+      </div>
+    </section>
+
+    <aside class="side-grid">
+      <section class="panel"><div class="section-title"><h2>Equipment</h2><span id="power">Power 0</span></div><div id="equipment" class="equipment"></div></section>
+      <section class="panel"><div class="section-title"><h2>Loot Rainbow</h2><span id="lootCount">0 found</span></div><div id="loot" class="feed"></div></section>
+      <section class="panel log-panel"><div class="section-title"><h2>Chronicle</h2><button id="clearLog" class="text-button">Clear</button></div><div id="log" class="feed log"></div></section>
+    </aside>
+  </main>
+
+  <dialog id="authorDialog">
+    <form method="dialog" class="dialog-shell">
+      <div class="section-title"><div><p class="eyebrow">DEVELOPMENT TOOL</p><h2>Authoring Mode</h2></div><button value="close" class="ghost">Close</button></div>
+      <div id="unlockPane">
+        <p>This is a lightweight development gate, not production security.</p>
+        <label>Development password<input id="password" type="password" autocomplete="current-password"></label>
+        <button id="unlockBtn" type="button" class="primary">Unlock</button><p id="authError" class="error"></p>
+      </div>
+      <div id="editorPane" hidden>
+        <p>Edit the complete game configuration. Apply validates and restarts the current run. Save stores the override in this browser.</p>
+        <textarea id="jsonEditor" spellcheck="false"></textarea>
+        <p id="editorStatus"></p>
+        <div class="controls"><button id="applyJson" type="button" class="primary">Apply</button><button id="saveJson" type="button">Save in Browser</button><button id="exportJson" type="button">Export JSON</button><button id="restoreJson" type="button" class="danger">Restore Default</button></div>
+      </div>
+    </form>
+  </dialog>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

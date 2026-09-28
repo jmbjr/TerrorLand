@@ -16,7 +16,7 @@ Tombs**, culminating in a battle with the **Mummy Queen**.
 
 ## Project Direction
 
-- Built with Godot.
+- Built as a dependency-free HTML, CSS, and JavaScript browser game.
 - Rules and content stored in editable JSON where practical.
 - Designed for autonomous combat with limited, meaningful player intervention.
 - Intended for browser export and automated deployment through GitHub Actions.
@@ -24,5 +24,22 @@ Tombs**, culminating in a battle with the **Mummy Queen**.
 
 ## Current Status
 
-Pre-production: the initial requirements and player guide are being defined
-before implementation of the first vertical slice.
+Playable prototype: autonomous combat, procedural equipment, retreat, local
+save data, and development-time JSON authoring are implemented. GitHub Actions
+validates the source and deploys `main` to GitHub Pages.
+
+## Local Development
+
+Serve the repository from a local web server (rather than opening `index.html`
+directly) so the browser can load `game.json`:
+
+```sh
+python3 -m http.server 8000
+```
+
+Then open `http://localhost:8000`.
+
+Authoring mode stores configuration overrides in that browser's local storage.
+Use **Export JSON** to create a file suitable for review and later replacement
+of `game.json`. The development gate is only a convenience; a static site
+cannot securely protect client-side authoring controls.

@@ -214,9 +214,9 @@ JSON files must be schema-validated at startup. Invalid content should produce a
 
 ## 15. Suggested Technical Architecture
 
-For a Godot implementation:
+For the browser implementation:
 
-- Keep simulation state in plain Resources or data objects, separate from scene nodes.
+- Keep simulation state in plain JavaScript data objects, separate from DOM elements.
 - Use a tick-based combat service with seeded random-number generation.
 - Treat presentation as a subscriber to simulation events.
 - Load validated JSON into immutable content definitions; store mutable run state separately.
@@ -239,16 +239,23 @@ Suggested high-level modules:
 ## 16. Web Build and Deployment
 
 - The primary shareable prototype must run in a modern desktop browser without installation.
-- The Godot project must remain compatible with web export; platform-specific features require a web-safe fallback.
+- The application must use browser-native HTML, CSS, and JavaScript without a game-engine runtime.
 - Save data must use browser-compatible local persistence and remain isolated per browser/device.
 - The public GitHub repository is `jmbjr/TerrorLand`.
-- A GitHub Actions workflow must export the web build and publish it to GitHub Pages.
+- A GitHub Actions workflow must validate the static site and publish it to GitHub Pages.
 - Deployment must run automatically after accepted changes reach the repository's deployment branch.
 - Pull requests should run validation and a web export smoke test without publishing over the playable build.
-- The workflow must pin or explicitly declare its Godot version so local and automated exports agree.
-- Export templates or generated build output should not be committed unless the workflow design specifically requires them.
+- The workflow must pin its validation runtime and deploy only after validation passes.
 - The published build must show a visible version or commit identifier for remote playtest reports.
 - Browser startup, save/load, audio initialization, and viewport scaling must be included in release checks.
+
+### Development Authoring Mode
+
+- A development-only authoring panel must allow the full game JSON to be edited and validated in the browser.
+- Access uses a lightweight password gate whose plaintext value is never committed; only a one-way hash may be shipped.
+- Because all static-site code is downloadable, this gate is explicitly not a security boundary.
+- Applied configuration may be saved in browser local storage, restored to defaults, or exported as JSON.
+- Authoring mode does not write directly to GitHub and must not embed repository credentials.
 
 ## 17. Acceptance Criteria for Version 0.1
 
